@@ -47,7 +47,7 @@ $(warning *  You are using version $(MAKE_VERSION) of make.)
 $(warning *  Android can only be built by versions 3.81 and 3.82.)
 $(warning *  see https://source.android.com/source/download.html)
 $(warning ********************************************************************************)
-$(error stopping)
+endif
 endif
 endif
 endif
@@ -129,7 +129,7 @@ java_version :=
 endif
 ifeq ($(strip $(java_version)),)
 $(info ************************************************************)
-$(info You are attempting to build with the incorrect version)
+$(info You are attempting to build with an unsupported version)
 $(info of java.)
 $(info $(space))
 $(info Your version is: $(shell java -version 2>&1 | head -n 1).)
@@ -138,7 +138,6 @@ $(info $(space))
 $(info Please follow the machine setup instructions at)
 $(info $(space)$(space)$(space)$(space)https://source.android.com/source/download.html)
 $(info ************************************************************)
-$(error stop)
 endif
 
 # Check for the correct version of javac
@@ -813,7 +812,7 @@ findbugs: $(INTERNAL_FINDBUGS_HTML_TARGET) $(INTERNAL_FINDBUGS_XML_TARGET)
 
 .PHONY: clean
 clean:
-	@rm -rf $(OUT_DIR)
+	@rm -rf $(OUT_DIR)/*
 	@echo "Entire build directory removed."
 
 .PHONY: clobber

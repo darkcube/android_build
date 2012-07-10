@@ -543,6 +543,7 @@ endif
 # some rules depend on asm_objects being first.  If your code depends on
 # being first, it's reasonable to require it to be assembly
 all_objects := \
+<<<<<<< HEAD
     $(asm_objects) \
     $(cpp_objects) \
     $(gen_cpp_objects) \
@@ -554,6 +555,11 @@ all_objects := \
     $(lex_objects) \
     $(proto_generated_objects) \
     $(addprefix $(TOPDIR)$(LOCAL_PATH)/,$(LOCAL_PREBUILT_OBJ_FILES))
+
+## Allow a device's own headers to take precedence over global ones
+ifneq ($(TARGET_SPECIFIC_HEADER_PATH),)
+LOCAL_C_INCLUDES += $(TOPDIR)$(TARGET_SPECIFIC_HEADER_PATH)
+endif
 
 LOCAL_C_INCLUDES += $(TOPDIR)$(LOCAL_PATH) $(intermediates)
 
