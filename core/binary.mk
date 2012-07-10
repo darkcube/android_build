@@ -543,7 +543,6 @@ endif
 # some rules depend on asm_objects being first.  If your code depends on
 # being first, it's reasonable to require it to be assembly
 all_objects := \
-<<<<<<< HEAD
     $(asm_objects) \
     $(cpp_objects) \
     $(gen_cpp_objects) \

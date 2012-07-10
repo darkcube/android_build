@@ -50,7 +50,6 @@ $(warning **********************************************************************
 endif
 endif
 endif
-endif
 
 # Absolute path of the present working direcotry.
 # This overrides the shell variable $PWD, which does not necessarily points to
